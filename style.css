@@ -26,7 +26,6 @@ main {
 }
 
 .title {
-    margin-top: 10%;
     text-transform: uppercase;
     text-align: center;
     font-weight: normal;
@@ -42,13 +41,13 @@ main {
     display: grid;
     column-gap: 2rem;
     row-gap: 3rem;
-    width: 80%;
     border: 1px white solid;
 }
 
 .flex {
     display: flex;
     margin: auto;
+    width: 100%;
 }
 
 .key {
@@ -60,4 +59,24 @@ main {
     background: none;
     margin: 0 1rem;
     font-size: 1.2rem;
+}
+
+.normal {
+    flex: 1;
+}
+
+.wide {
+    flex: 5;
+}
+
+.swide {
+    flex: 8;
+}
+
+.dwide {
+    flex: 10;
+}
+
+.divisor {
+    flex-grow: 1;
 }
