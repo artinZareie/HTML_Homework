@@ -41,7 +41,6 @@ main {
     display: grid;
     column-gap: 2rem;
     row-gap: 3rem;
-    border: 1px white solid;
     grid-template-rows: repeat(4, 1fr);
 }
 
@@ -52,7 +51,6 @@ main {
     min-height: 60px;
     border-radius: 10px;
     background: none;
-    margin: 0 1rem;
     font-size: 1rem;
 }
 
@@ -64,8 +62,8 @@ Each 0.5cm acts as 1fr
 Normal -> 1.5 cm = 3fr
 Backspace -> 3 cm = 6fr
 Tab -> 2.5 cm = 5fr
-Caps -> 2 cm = 4fr
-Enter -> 4 cm = 8fr
+Caps -> 3 cm = 6fr
+Enter -> 3 cm = 8fr
 LShift -> 3.5 cm = 7fr
 RShift -> 4 cm = 8fr
 \ -> 2cm = 4fr
@@ -74,6 +72,8 @@ RShift -> 4 cm = 8fr
 2nd row -> 22.5 = 45fr
 3nd row -> 22.5 = 45fr
 4th row -> 22.5 = 45fr
+
+Finally I add 2 more fr's to make the grid
 */
 
 .flex {
@@ -81,7 +81,8 @@ RShift -> 4 cm = 8fr
     margin: auto;
     width: 100%;
     grid-row: span 1;
-    grid-template-columns: repeat(45, 1fr);
+    grid-template-columns: repeat(47, minmax(0, 1fr));
+    gap: 1.4rem;
 }
 
 .fr-3 {
@@ -101,9 +102,13 @@ RShift -> 4 cm = 8fr
 }
 
 .fr-7 {
-    grid-column: span 8;
+    grid-column: span 7;
 }
 
 .fr-8 {
     grid-column: span 8;
+}
+
+.fr-9 {
+    grid-column: span 9;
 }
