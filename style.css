@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+:root {
+    --red: rgb(255, 100, 100);
+    --green: rgb(100, 200, 100);
+    --blue: rgb(100, 100, 255);
+    --bg-dark: #1b6c8a;
+    --bg-primary: #64ccc8;
+    --bg-secondary: #defbfe;
+    --bg-danger: #ff9eaa;
+    --bg-soft: #ffd0cb;
+}
+
 * {
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1em;
-    color: rgb(237, 250, 240);
+    color: rgb(46, 47, 53);
 }
 
 body {
@@ -13,11 +24,11 @@ body {
 }
 
 main {
-    background: rgb(85,109,119);
-    background: -moz-linear-gradient(357deg, rgba(85,109,119,1) 0%, rgba(33,48,102,1) 100%);
-    background: -webkit-linear-gradient(357deg, rgba(85,109,119,1) 0%, rgba(33,48,102,1) 100%);
-    background: linear-gradient(357deg, rgba(85,109,119,1) 0%, rgba(33,48,102,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#556d77",endColorstr="#213066",GradientType=1);
+    background: rgb(0,28,48);
+    background: -moz-linear-gradient(42deg, rgba(0,28,48,1) 0%, rgba(36,50,101,1) 100%);
+    background: -webkit-linear-gradient(42deg, rgba(0,28,48,1) 0%, rgba(36,50,101,1) 100%);
+    background: linear-gradient(42deg, rgba(0,28,48,1) 0%, rgba(36,50,101,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#001c30",endColorstr="#243265",GradientType=1);
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -30,6 +41,8 @@ main {
     text-align: center;
     font-weight: normal;
     font-size: 1.6rem;
+    margin-top: 5%;
+    color: whitesmoke;
 }
 
 .container {
@@ -45,13 +58,19 @@ main {
 }
 
 .key {
-    border: 2px solid rgb(166, 166, 190);
     text-transform: uppercase;
     min-width: 60px;
     min-height: 60px;
     border-radius: 10px;
     background: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    animation: backlight 5s -0.5s linear infinite;
+    outline: none;
+    border: none;
+}
+
+.key:focus {
+    outline: none;
 }
 
 /*
@@ -111,4 +130,27 @@ Finally I add 2 more fr's to make the grid
 
 .fr-9 {
     grid-column: span 9;
+}
+
+@keyframes backlight {
+    0% { box-shadow: 0 0 5vmin -2vmin var(--red); }
+    33% { box-shadow: 0 0 5vmin -2vmin var(--blue); }
+    66% { box-shadow: 0 0 5vmin -2vmin var(--green); }
+    100% { box-shadow: 0 0 5vmin -2vmin var(--red); }
+}
+
+.flex:nth-child(4n + 1) .key {
+    background-color: var(--bg-dark);
+}
+
+.flex:nth-child(4n + 2) .key {
+    background-color: var(--bg-primary);
+}
+
+.flex:nth-child(4n + 3) .key {
+    background-color: var(--bg-secondary);
+}
+
+.flex:nth-child(4n) .key {
+    background-color: var(--bg-danger);
 }
