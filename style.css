@@ -153,6 +153,11 @@ Finally I add 2 more fr's to make the grid
     color: var(--text-light);
 }
 
+.flex .key:nth-child(8n - 7) .ficon,
+.flex .key:nth-child(8n - 6) .ficon {
+    stroke: var(--text-light);
+}
+
 .flex .key:nth-child(8n - 5),
 .flex .key:nth-child(8n - 4) {
     background-color: var(--bg-primary);
@@ -167,4 +172,9 @@ Finally I add 2 more fr's to make the grid
 .flex .key:nth-child(8n) {
     background-color: var(--bg-danger);
     color: var(--text-light);
+}
+
+.flex .key:nth-child(8n - 1) .ficon,
+.flex .key:nth-child(8n) .ficon {
+    stroke: var(--text-light);
 }
