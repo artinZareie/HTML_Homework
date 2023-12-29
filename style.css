@@ -42,12 +42,7 @@ main {
     column-gap: 2rem;
     row-gap: 3rem;
     border: 1px white solid;
-}
-
-.flex {
-    display: flex;
-    margin: auto;
-    width: 100%;
+    grid-template-rows: repeat(4, 1fr);
 }
 
 .key {
@@ -58,25 +53,57 @@ main {
     border-radius: 10px;
     background: none;
     margin: 0 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
-.normal {
-    flex: 1;
+/*
+***** Calculations *****
+
+Each 0.5cm acts as 1fr
+
+Normal -> 1.5 cm = 3fr
+Backspace -> 3 cm = 6fr
+Tab -> 2.5 cm = 5fr
+Caps -> 2 cm = 4fr
+Enter -> 4 cm = 8fr
+LShift -> 3.5 cm = 7fr
+RShift -> 4 cm = 8fr
+\ -> 2cm = 4fr
+
+1st row -> 22.5 cm = 45fr
+2nd row -> 22.5 = 45fr
+3nd row -> 22.5 = 45fr
+4th row -> 22.5 = 45fr
+*/
+
+.flex {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    grid-row: span 1;
+    grid-template-columns: repeat(45, 1fr);
 }
 
-.wide {
-    flex: 5;
+.fr-3 {
+    grid-column: span 3;
 }
 
-.swide {
-    flex: 8;
+.fr-4 {
+    grid-column: span 4;
 }
 
-.dwide {
-    flex: 10;
+.fr-5 {
+    grid-column: span 5;
 }
 
-.divisor {
-    flex-grow: 1;
+.fr-6 {
+    grid-column: span 6;
+}
+
+.fr-7 {
+    grid-column: span 8;
+}
+
+.fr-8 {
+    grid-column: span 8;
 }
