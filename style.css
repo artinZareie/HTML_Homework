@@ -9,6 +9,7 @@
     --bg-secondary: #defbfe;
     --bg-danger: #ff9eaa;
     --bg-soft: #ffd0cb;
+    --text-light: #f5f5f5;
 }
 
 * {
@@ -42,7 +43,7 @@ main {
     font-weight: normal;
     font-size: 1.6rem;
     margin-top: 5%;
-    color: whitesmoke;
+    color: var(--text-light);
 }
 
 .container {
@@ -57,6 +58,14 @@ main {
     grid-template-rows: repeat(4, 1fr);
 }
 
+/* @keyframes backlight {
+    0% { box-shadow: 0 0 0 0 var(--red, 0.1); }
+    25% { box-shadow: 0 0 6px 2px var(--blue, 0.2); }
+    50% { box-shadow: 0 0 12px 4px var(--green, 0.3); }
+    75% { box-shadow: 0 0 6px 2px var(--blue, 0.2); }
+    100% { box-shadow: 0 0 0 0 var(--red, 0.1); }
+} */
+
 .key {
     text-transform: uppercase;
     min-width: 60px;
@@ -64,9 +73,15 @@ main {
     border-radius: 10px;
     background: none;
     font-size: 1.1rem;
-    animation: backlight 5s -0.5s linear infinite;
+    /* animation: backlight 5s -0.5s linear infinite; */
     outline: none;
     border: none;
+    transition: 0.5s ease;
+}
+
+.key:hover {
+    transition: 0.5s ease;
+    opacity: 0.2;
 }
 
 .key:focus {
@@ -132,25 +147,24 @@ Finally I add 2 more fr's to make the grid
     grid-column: span 9;
 }
 
-@keyframes backlight {
-    0% { box-shadow: 0 0 5vmin -2vmin var(--red); }
-    33% { box-shadow: 0 0 5vmin -2vmin var(--blue); }
-    66% { box-shadow: 0 0 5vmin -2vmin var(--green); }
-    100% { box-shadow: 0 0 5vmin -2vmin var(--red); }
-}
-
-.flex:nth-child(4n + 1) .key {
+.flex .key:nth-child(8n - 7),
+.flex .key:nth-child(8n - 6) {
     background-color: var(--bg-dark);
+    color: var(--text-light);
 }
 
-.flex:nth-child(4n + 2) .key {
+.flex .key:nth-child(8n - 5),
+.flex .key:nth-child(8n - 4) {
     background-color: var(--bg-primary);
 }
 
-.flex:nth-child(4n + 3) .key {
+.flex .key:nth-child(8n - 3),
+.flex .key:nth-child(8n - 2) {
     background-color: var(--bg-secondary);
 }
 
-.flex:nth-child(4n) .key {
+.flex .key:nth-child(8n - 1),
+.flex .key:nth-child(8n) {
     background-color: var(--bg-danger);
+    color: var(--text-light);
 }
